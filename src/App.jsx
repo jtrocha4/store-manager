@@ -1,14 +1,20 @@
 import './App.css'
 import Navbar from './components/Navbar'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import ItemsPage from './pages/ItemsPage'
+import UsersPage from './pages/UsersPage'
 
-function App() {
+function App () {
   return (
-    <>
-      <Navbar></Navbar>
+    <Router>
+      <Navbar />
       <section className=' my-4 py-4 px-2'>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa veniam quo ut, id ab veritatis hic voluptates facere quis. Quibusdam et eius voluptate temporibus ut sint eaque maiores excepturi nesciunt.</p>
+        <Routes>
+          <Route path='/items' element={<ItemsPage />} />
+          <Route path='/users' element={<UsersPage />} />
+        </Routes>
       </section>
-    </>
+    </Router>
   )
 }
 
