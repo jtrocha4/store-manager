@@ -1,7 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from './Button'
 
 function Table () {
+  const items = [{
+    id: '1',
+    descripcion: 'Camiseta oversize marfil ilustración',
+    categoria: 'Camiseta',
+    genero: 'Hombre',
+    color: 'Mafil',
+    fit: 'Oversized',
+    unidades: '120',
+    precio: '$99.000'
+  }, {
+    id: '2',
+    descripcion: 'Polo Verde Básico',
+    categoria: 'Polo',
+    genero: 'Hombre',
+    color: 'Verde',
+    fit: 'Regular',
+    unidades: '60',
+    precio: '$120.000'
+  }]
+
+  console.log(items)
+
   return (
     <table className='table-auto w-full h-full my-0 align-middle text-dark border-neutral-200'>
       <thead className='align-bottom border-b-2 border-gray-500'>
@@ -17,49 +40,57 @@ function Table () {
         </tr>
       </thead>
       <tbody className='border-b border-dashed last:border-b-0'>
-        <tr>
-          <td className='p-3 pl-0'>
-            <Link className='mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary'>
-              Camiseta Oversize Marfil Ilustración
-            </Link>
-          </td>
-          <td className='p-3 pr-0 text-end'>
-            <span className='font-semibold text-light-inverse text-md/normal'>
-              Camiseta
-            </span>
-          </td>
-          <td className='p-3 pr-0 text-end'>
-            <span className='font-semibold text-light-inverse text-md/normal'>
-              Hombre
-            </span>
-          </td>
-          <td className='p-3 pr-0 text-end'>
-            <span className='font-semibold text-light-inverse text-md/normal'>
-              Marfil
-            </span>
-          </td>
-          <td className='p-3 pr-0 text-end'>
-            <span className='font-semibold text-light-inverse text-md/normal'>
-              Oversized
-            </span>
-          </td>
-          <td className='p-3 pr-0 text-end'>
-            <span className='font-semibold text-light-inverse text-md/normal'>
-              120
-            </span>
-          </td>
-          <td className='p-3 pr-0 text-end'>
-            <span className='font-semibold text-light-inverse text-md/normal'>
-              $109.000
-            </span>
-          </td>
-          <td className='p-3 pr-0'>
-            <ul className='flex gap-3 p-3 pr-0 items-center justify-center'>
-              <li className='font-semibold text-light-inverse text-md/normal'>Editar</li>
-              <li className='font-semibold text-light-inverse text-md/normal'>Eliminar</li>
-            </ul>
-          </td>
-        </tr>
+        {
+          items.map(it => (
+            <tr key={it.id} className='border-b border-dashed last:border-b-0'>
+              <td className='p-3 pl-0'>
+                <Link className='mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary'>
+                  {it.descripcion}
+                </Link>
+              </td>
+              <td className='p-3 pr-0 text-end'>
+                <span className='font-semibold text-light-inverse text-md/normal'>
+                  {it.categoria}
+                </span>
+              </td>
+              <td className='p-3 pr-0 text-end'>
+                <span className='font-semibold text-light-inverse text-md/normal'>
+                  {it.genero}
+                </span>
+              </td>
+              <td className='p-3 pr-0 text-end'>
+                <span className='font-semibold text-light-inverse text-md/normal'>
+                  {it.color}
+                </span>
+              </td>
+              <td className='p-3 pr-0 text-end'>
+                <span className='font-semibold text-light-inverse text-md/normal'>
+                  {it.fit}
+                </span>
+              </td>
+              <td className='p-3 pr-0 text-end'>
+                <span className='font-semibold text-light-inverse text-md/normal'>
+                  {it.unidades}
+                </span>
+              </td>
+              <td className='p-3 pr-0 text-end'>
+                <span className='font-semibold text-light-inverse text-md/normal'>
+                  {it.precio}
+                </span>
+              </td>
+              <td className='p-3 pr-0'>
+                <ul className='flex gap-0 p-3 pr-0 items-center justify-center'>
+                  <li>
+                    <Button label='Editar' background='bg-blue-600' shadow='shadow-blue-600/20' hover='shadow-blue-600/40' />
+                  </li>
+                  <li>
+                    <Button label='Eliminar' background='bg-red-600' shadow='shadow-red-600/20' hover='shadow-red-600/40' />
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          ))
+        }
       </tbody>
     </table>
   )
