@@ -23,7 +23,7 @@ function Table () {
     precio: '$120.000'
   }]
 
-  console.log(items)
+  // console.log(items)
 
   return (
     <table className='table-auto w-full h-full my-0 align-middle text-dark border-neutral-200'>
@@ -79,12 +79,12 @@ function Table () {
                 </span>
               </td>
               <td className='p-3 pr-0'>
-                <ul className='flex gap-0 p-3 pr-0 items-center justify-center'>
+                <ul className='flex gap-2 p-3 pr-0 items-center justify-center'>
                   <li>
-                    <Button label='Editar' background='bg-blue-600' shadow='shadow-blue-600/20' hover='shadow-blue-600/40' />
+                    <Button label='Editar' background='bg-blue-600' />
                   </li>
                   <li>
-                    <Button label='Eliminar' background='bg-red-600' shadow='shadow-red-600/20' hover='shadow-red-600/40' />
+                    <Button label='Eliminar' background='bg-red-600' />
                   </li>
                 </ul>
               </td>
